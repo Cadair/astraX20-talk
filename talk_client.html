@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>SunPy: Python for Solar Physics</title>
+<meta name="author" content="Stuart Mumford"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="/src/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="/src/reveal.js/css/theme/simple.css" id="theme"/>
+
+<link rel="stylesheet" href="org.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = '/src/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide" data-background="./images/background_1.jpg">
+<h3>SunPy: Python for Solar Physics</h3>
+<h4>Stuart Mumford</h4>
+<a href="https://aperio.software"><img style='float: left; width: 30%; margin-top: 100px; height: 25%;' src='images/aperio.svg'/></a><a href="https://sheffield.ac.uk"><img style='float: right; width: 30%; margin-top: 100px; height: 25%;' src='images/TUOS_Logo_CMYK_Keyline.svg'/></a><a href="https://sunpy.org"><img style='float: right; width: 30%; margin-top: 100px; height: 25%; margin-right: 5%;' src='images/sunpy.svg'/></a>
+</section>
+
+<section>
+<section id="slide-orgedaa9fe" data-background="./images/background_1.jpg">
+<h2 id="orgedaa9fe">Me</h2>
+<p>
+I am the Lead Developer of SunPy.
+I work for the National Solar Observatory in the DKI Solar Telescope Data Centre.
+I also am a maintainer of <code>astropy.visualization</code>, and have been seen contributing to the matrix ecosystem, mainly the Slack bridge.
+</p>
+
+<div class='left'>
+
+<p>
+Find me online:
+</p>
+
+<ul>
+<li><a href="http://stuartmumford.uk">stuartmumford.uk</a></li>
+<li><a href="https://matrix.to/#/@cadair:cadair.com">@cadair:cadair.com</a> on Matrix</li>
+<li><a href="https://github.com/Cadair">@Cadair</a> on GitHub</li>
+<li><a href="https://twitter.com/stuartmumford">@stuartmumford</a> on Twitter</li>
+
+</ul>
+
+</div>
+
+<div class='right'>
+
+
+<div class="figure">
+<p><img src="./images/cadair.jpg" alt="cadair.jpg" width="300px" />
+</p>
+</div>
+
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org83c3a74" data-background="./images/background_1.jpg">
+<h2 id="org83c3a74">What is SunPy?</h2>
+<p>
+It's a Python library
+</p>
+<blockquote>
+<p>
+A community-developed, free and open-source solar data analysis environment for Python.
+</p>
+</blockquote>
+
+
+</section>
+<section id="slide-orge5a1313" data-background="./images/background_1.jpg">
+<h3 id="orge5a1313"></h3>
+<p>
+&#x2026; but not just one library
+</p>
+<blockquote>
+<p>
+A project to facilitate and promote the use and development of a community-led, free and open-source solar data-analysis software based on the scientific Python environment
+</p>
+</blockquote>
+
+<div class='left'>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="./images/sunpy_icon.svg" class="org-svg" height="200px">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+<p>
+SunPy Core
+</p>
+
+</div>
+
+<div class='right'>
+
+
+<div class="figure">
+<p><img src="./images/ndcube.png" alt="ndcube.png" height="175px" />
+</p>
+</div>
+
+<p>
+NDCube
+</p>
+
+</div>
+
+</section>
+<section id="slide-org1b9b996" data-background="./images/sunpy_github.png" data-background-position="top" data-background-transition="slide">
+<h4 id="org1b9b996"></h4>
+</section>
+</section>
+<section>
+<section id="slide-org9cf4efc" data-background="./images/fulldiskmulticolor.jpg" data-background-transition="slide">
+<h2 id="org9cf4efc"></h2>
+<aside class="notes">
+<p>
+I promised pretty pictures of the Sun, so let's start with one of my favourites.
+</p>
+
+<p>
+This is a NASA/SDO/AIA image which is a RGB composite of the solar corona in three passbands.
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org25564c9" data-background="" data-background-video="./images/Inouye-First-Light-zoom-loop_FHD-H264.mp4" data-background-video-loop>
+<h2 id="org25564c9"></h2>
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+This is the first data released from the DKI Solar Telescope.
+</p>
+
+<p>
+The cell-like structures &#x2013; each about the size of Texas &#x2013; are the signature of violent motions that transport heat from the inside of the Sun to its surface. That hot solar plasma rises in the bright centers of “cells,” cools off and then sinks below the surface in dark lanes in a process known as convection.
+</p>
+
+</aside>
+</section>
+</section>
+</div>
+</div>
+<script src="/src/reveal.js/lib/js/head.min.js"></script>
+<script src="/src/reveal.js/js/reveal.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'convex', // see README of reveal.js for options
+transitionSpeed: 'default',
+multiplex: {
+    secret: null, // null if client
+    id: 'bd48dc06640f14b9', // id, obtained from socket.io server
+    url: 'https://reveal-js-multiplex-ccjbegmaii.now.sh:443' // Location of socket.io server
+},
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: '/src/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.0.6/socket.io.min.js', async: true },
+ { src: '/src/reveal.js/plugin/multiplex/client.js', async: true }]
+
+});
+</script>
+</body>
+</html>

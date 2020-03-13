@@ -1,0 +1,114 @@
+#+REVEAL_ROOT: /src/reveal.js/
+#+REVEAL_INIT_OPTIONS: transition:fade'
+#+REVEAL_THEME: simple
+#+REVEAL_DEFAULT_SLIDE_BACKGROUND: ./images/background_1.jpg
+#+REVEAL_TITLE_SLIDE_BACKGROUND: ./images/background_1.jpg
+#+OPTIONS: toc:nil
+#+OPTIONS: num:nil
+#+REVEAL_EXTRA_CSS: org.css
+#+REVEAL_MULTIPLEX_ID: bd48dc06640f14b9
+#+REVEAL_MULTIPLEX_SECRET: 15841015407773172823
+#+REVEAL_MULTIPLEX_URL: https://reveal-js-multiplex-ccjbegmaii.now.sh:443
+#+REVEAL_MULTIPLEX_SOCKETIO_URL: https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.0.6/socket.io.min.js
+#+REVEAL_PLUGINS: (notes multiplex)
+
+#+TITLE: SunPy: Python for Solar Physics
+#+AUTHOR: Stuart Mumford
+#+REVEAL_TITLE_SLIDE: <h3>%t</h3>
+#+REVEAL_TITLE_SLIDE: <h4>%a</h4>
+#+REVEAL_TITLE_SLIDE: <a href="https://aperio.software"><img style='float: left; width: 30%%; margin-top: 100px; height: 25%%;' src='images/aperio.svg'/></a><a href="https://sheffield.ac.uk"><img style='float: right; width: 30%%; margin-top: 100px; height: 25%%;' src='images/TUOS_Logo_CMYK_Keyline.svg'/></a><a href="https://sunpy.org"><img style='float: right; width: 30%%; margin-top: 100px; height: 25%%; margin-right: 5%%;' src='images/sunpy.svg'/></a>
+
+* Me
+
+I am the Lead Developer of SunPy.
+I work for the National Solar Observatory in the DKI Solar Telescope Data Centre.
+I also am a maintainer of ~astropy.visualization~, and have been seen contributing to the matrix ecosystem, mainly the Slack bridge.
+
+#+REVEAL_HTML: <div class='left'>
+
+Find me online:
+
+- [[http://stuartmumford.uk][stuartmumford.uk]]
+- [[https://matrix.to/#/@cadair:cadair.com][@cadair:cadair.com]] on Matrix
+- [[https://github.com/Cadair][@Cadair]] on GitHub
+- [[https://twitter.com/stuartmumford][@stuartmumford]] on Twitter
+
+#+REVEAL_HTML: </div>
+
+#+REVEAL_HTML: <div class='right'>
+
+#+attr_html: :width 300px
+[[./images/cadair.jpg]]
+
+#+REVEAL_HTML: </div>
+
+
+* What is SunPy?
+
+It's a Python library
+#+BEGIN_QUOTE
+A community-developed, free and open-source solar data analysis environment for Python.
+#+END_QUOTE
+
+
+** 
+
+... but not just one library
+#+BEGIN_QUOTE
+A project to facilitate and promote the use and development of a community-led, free and open-source solar data-analysis software based on the scientific Python environment
+#+END_QUOTE
+
+#+REVEAL_HTML: <div class='left'>
+
+#+attr_html: :height 200px
+[[./images/sunpy_icon.svg]]
+
+SunPy Core
+
+#+REVEAL_HTML: </div>
+
+#+REVEAL_HTML: <div class='right'>
+
+#+attr_html: :height 175px
+[[./images/ndcube.png]]
+
+NDCube
+
+#+REVEAL_HTML: </div>
+
+*** 
+  :PROPERTIES:
+  :reveal_background: ./images/sunpy_github.png
+  :reveal_background_trans: slide
+  :reveal_background_position: top
+  :END:
+
+
+# AIA
+* 
+  :PROPERTIES:
+  :reveal_background: ./images/fulldiskmulticolor.jpg
+  :reveal_background_trans: slide
+  :END:
+
+#+BEGIN_NOTES
+I promised pretty pictures of the Sun, so let's start with one of my favourites.
+
+This is a NASA/SDO/AIA image which is a RGB composite of the solar corona in three passbands.
+#+END_NOTES
+
+# DKIST
+* 
+  :PROPERTIES:
+  :reveal_background:
+  :reveal_extra_attr: data-background-video="./images/Inouye-First-Light-zoom-loop_FHD-H264.mp4" data-background-video-loop
+  :END:
+
+#+BEGIN_NOTES
+
+This is the first data released from the DKI Solar Telescope.
+
+The cell-like structures -- each about the size of Texas -- are the signature of violent motions that transport heat from the inside of the Sun to its surface. That hot solar plasma rises in the bright centers of “cells,” cools off and then sinks below the surface in dark lanes in a process known as convection.
+#+END_NOTES
+
+
