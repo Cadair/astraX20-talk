@@ -21,6 +21,12 @@
 #+REVEAL_TITLE_SLIDE: <h5>Slides: <a href="https://astrax.cadair.dev/">astrax.cadair.dev</a></h5>
 #+REVEAL_TITLE_SLIDE: <a href="https://aperio.software"><img style='float: left; width: 30%%; margin-top: 100px; height: 25%%;' src='images/aperio.svg'/></a><a href="https://sheffield.ac.uk"><img style='float: right; width: 30%%; margin-top: 100px; height: 25%%;' src='images/TUOS_Logo_CMYK_Keyline.svg'/></a><a href="https://sunpy.org"><img style='float: right; width: 30%%; margin-top: 100px; height: 25%%; margin-right: 5%%;' src='images/sunpy.svg'/></a>
 
+#+begin_notes
+
+Go to that URL to follow along with my slides and to be able to click on links etc.
+
+#+end_notes
+
 * Me
 
 I am the Lead Developer of SunPy.
@@ -32,7 +38,7 @@ I also am a maintainer of ~astropy.visualization~, and have been seen contributi
 Find me online:
 
 - [[http://stuartmumford.uk][stuartmumford.uk]]
-- [[https://matrix.to/#/@cadair:cadair.com][@cadair:cadair.com]] on Matrix
+- [[https://matrix.to/#/@cadair:cadair.com][@cadair:cadair.com]] on [[https://matrix.org][Matrix]]
 - [[https://github.com/Cadair][@Cadair]] on GitHub
 - [[https://twitter.com/stuartmumford][@stuartmumford]] on Twitter
 
@@ -45,6 +51,19 @@ Find me online:
 
 #+REVEAL_HTML: </div>
 
+#+begin_notes
+
+Hello!
+
+I work for DKIST, a 4m Solar Telescope under construction on Maui.
+
+I contribute to Astropy for SunPy and DKIST.
+
+Everyone should use matrix.
+
+I am also known as Cadair. Cadair Idris is a mountain in Snowdonia Wales and this is me on its summit.
+
+#+end_notes
 
 * What is SunPy?
 
@@ -53,6 +72,12 @@ It's a Python library
 A community-developed, free and open-source solar data analysis environment for Python.
 #+END_QUOTE
 
+#+begin_notes
+
+SunPy was started around 2011, I have been involved since shortly after the 0.1 release.
+
+I saw the release announcement on Twitter one morning and it ate the next ~8 years of my life.
+#+end_notes
 
 ** 
 
@@ -327,24 +352,129 @@ fig_c.savefig("images/coords_1.png", transparent=True)
 #+RESULTS:
 [[file:images/coords_1.png]]
 
-*** Coordinates
 
+** Planetary Coordinates and Images
 
-#+BEGIN_SRC python :session repro :exports both :results output
-get_body_heliographic_stonyhurst('earth', "2020/03/14")
+#+BEGIN_SRC python :session venus :exports none :results output
+import matplotlib
+matplotlib.use('Agg')
+
+import matplotlib.pyplot as plt
+
+import astropy.units as u
+from astropy.coordinates import SkyCoord
+from astropy.coordinates import solar_system_ephemeris
+solar_system_ephemeris.set('de432s')
+
+from sunpy.net import Fido, attrs as a
+import sunpy.map
+from sunpy.coordinates import get_body_heliographic_stonyhurst
+
+result = Fido.search(a.Time('2012/06/06 04:07:25', '2012/06/06 04:07:35'),
+                     a.Instrument('aia'),
+                     a.Wavelength(304*u.angstrom))
+
+venus_transit_file = Fido.fetch(result)[0]
 #+END_SRC
 
 #+RESULTS:
-: <HeliographicStonyhurst Coordinate (obstime=2020-03-14T00:00:00.000): (lon, lat, radius) in (deg, deg, AU)
-:     (0., -7.18397967, 0.99417787)>
+#+begin_example
+Files Downloaded:   0% 0/1 [00:00<?, ?file/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:   0% 0.00/6.73M [00:00<?, ?B/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:   0% 14.4k/6.73M [00:00<00:56, 118kB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:   1% 44.1k/6.73M [00:00<00:47, 140kB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:   1% 98.0k/6.73M [00:00<00:37, 176kB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:   3% 203k/6.73M [00:00<00:28, 231kB/s] 
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:   5% 353k/6.73M [00:00<00:22, 279kB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  11% 773k/6.73M [00:00<00:15, 385kB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  13% 904k/6.73M [00:01<00:12, 453kB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  15% 1.02M/6.73M [00:01<00:10, 537kB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  17% 1.15M/6.73M [00:01<00:08, 645kB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  19% 1.28M/6.73M [00:01<00:07, 719kB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  21% 1.40M/6.73M [00:01<00:06, 780kB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  23% 1.53M/6.73M [00:01<00:06, 841kB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  25% 1.65M/6.73M [00:01<00:05, 895kB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  26% 1.78M/6.73M [00:01<00:05, 937kB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  28% 1.92M/6.73M [00:02<00:04, 976kB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  30% 2.05M/6.73M [00:02<00:04, 1.00MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  32% 2.18M/6.73M [00:02<00:04, 1.03MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  34% 2.32M/6.73M [00:02<00:04, 1.05MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  36% 2.46M/6.73M [00:02<00:03, 1.08MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  39% 2.59M/6.73M [00:02<00:03, 1.09MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  41% 2.73M/6.73M [00:02<00:03, 1.11MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  43% 2.87M/6.73M [00:02<00:03, 1.12MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  45% 3.02M/6.73M [00:03<00:03, 1.13MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  47% 3.16M/6.73M [00:03<00:03, 1.14MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  49% 3.30M/6.73M [00:03<00:03, 1.14MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  51% 3.44M/6.73M [00:03<00:02, 1.15MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  53% 3.58M/6.73M [00:03<00:02, 1.19MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  55% 3.72M/6.73M [00:03<00:02, 1.18MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  57% 3.86M/6.73M [00:03<00:02, 1.18MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  60% 4.01M/6.73M [00:03<00:02, 1.10MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  62% 4.15M/6.73M [00:04<00:02, 1.12MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  64% 4.30M/6.73M [00:04<00:02, 1.14MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  66% 4.44M/6.73M [00:04<00:02, 1.07MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  68% 4.58M/6.73M [00:04<00:01, 1.10MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  70% 4.73M/6.73M [00:04<00:01, 1.12MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  72% 4.87M/6.73M [00:04<00:01, 1.05MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  74% 5.02M/6.73M [00:04<00:01, 1.09MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  77% 5.16M/6.73M [00:04<00:01, 1.11MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  79% 5.30M/6.73M [00:05<00:01, 1.04MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  81% 5.45M/6.73M [00:05<00:01, 1.07MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  83% 5.59M/6.73M [00:05<00:01, 1.10MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  85% 5.73M/6.73M [00:05<00:00, 1.04MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  87% 5.88M/6.73M [00:05<00:00, 1.08MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  89% 6.02M/6.73M [00:05<00:00, 1.10MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  92% 6.16M/6.73M [00:05<00:00, 1.05MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  94% 6.31M/6.73M [00:06<00:00, 1.09MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  96% 6.45M/6.73M [00:06<00:00, 1.11MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  98% 6.59M/6.73M [00:06<00:00, 1.05MB/s]
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits: 6.74MB [00:06, 1.09MB/s]                
+aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits: 6.89MB [00:06, 1.12MB/s]
+                                                                               Files Downloaded: 100% 1/1 [00:07<00:00,  7.86s/file]Files Downloaded: 100% 1/1 [00:07<00:00,  7.86s/file]
+#+end_example
 
-#+BEGIN_SRC python :session repro :exports both :results output
-maps[0].observer_coordinate
+#+BEGIN_SRC python :session venus :exports both
+aiamap = sunpy.map.Map(venus_transit_file)
+
+venus = get_body_heliographic_stonyhurst('venus', aiamap.date,
+                                         observer=aiamap.observer_coordinate)
+venus_hpc = venus.transform_to(aiamap.coordinate_frame)
+venus_hpc
 #+END_SRC
 
 #+RESULTS:
-: <SkyCoord (HeliographicStonyhurst: obstime=2011-11-01T00:05:31.331): (lon, lat, radius) in (deg, deg, m)
-:     (105.18280015, -6.83288177, 1.44676363e+11)>
+: <Helioprojective Coordinate (obstime=2012-06-06T04:07:32.130, rsun=696000000.0 m, observer=<HeliographicStonyhurst Coordinate (obstime=2012-06-06T04:07:32.130): (lon, lat, radius) in (deg, deg, m)
+:     (-0.01206195, -0.00151094, 1.51827584e+11)>): (Tx, Ty, distance) in (arcsec, arcsec, km)
+:     (753.79049542, 484.63971008, 43212248.73488458)>
+
+*** 
+
+#+BEGIN_SRC python :session venus :exports code :results output
+fov = 100 * u.arcsec
+top_right = SkyCoord(venus_hpc.Tx + fov, venus_hpc.Ty + fov, frame=aiamap.coordinate_frame)
+bottom_left = SkyCoord(venus_hpc.Tx - fov, venus_hpc.Ty - fov, frame=aiamap.coordinate_frame)
+
+venus_map = aiamap.submap(top_right, bottom_left)
+
+ax = plt.subplot(projection=venus_map)
+venus_map.plot()
+ax.plot_coord(venus_hpc, 'x', color='white', markersize=10)
+#+END_SRC
+
+#+RESULTS:
+
+*** 
+
+#+BEGIN_SRC python :session venus :results file :exports results
+plt.savefig("images/aia_map_venus.png", transparent=True)
+"images/aia_map_venus.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:images/aia_map_venus.png]]
+
+https://docs.sunpy.org/en/latest/generated/gallery/units_and_coordinates/venus_transit.html
 
 
 * Contributing Code
@@ -368,7 +498,7 @@ https://docs.sunpy.org/en/latest/dev_guide/newcomers.html#code
     * conda or virtualenv etc.
     * 3.6+ Python
     * C compiler + toolchain
-  * Clone the sunpy repo
+  * Fork then Clone the sunpy repo
    * Always good to learn git
   * Run the tests ~tox -e py38~
   * Make a git branch and edit some code
@@ -386,12 +516,19 @@ https://docs.sunpy.org/en/latest/dev_guide/newcomers.html#code
 
 ** What to Expect
 
+#+REVEAL_HTML: <div class='left'>
+
 #+ATTR_REVEAL: :frag (appear)
+  * A friendly reception.
   * A lot of comments!!
   * Iteration and improvement.
-  * A friendly reception.
   * Attribution.
   * Eternal gratitude.
+
+#+REVEAL_HTML: </div>
+#+REVEAL_HTML: <div class='right'>
+[[./images/sunpy_pr_comments.png]]
+#+REVEAL_HTML: </div>
 
 # DKIST
 * 
@@ -405,3 +542,20 @@ This is the first data released from the DKI Solar Telescope.
 
 The cell-like structures -- each about the size of Texas -- are the signature of violent motions that transport heat from the inside of the Sun to its surface. That hot solar plasma rises in the bright centers of “cells,” cools off and then sinks below the surface in dark lanes in a process known as convection.
 #+END_NOTES
+
+* Get Involved!
+
+
+Contributing to an open source project such as SunPy or Astropy is great fun, people are friendly and helpful.
+
+Come say hello in chat, and see if you can find something that excites you to work on!
+
+
+Thanks!
+
+# DKIST
+* 
+  :PROPERTIES:
+  :reveal_background:
+  :reveal_extra_attr: data-background-video="./images/Inouye-First-Light-zoom-loop_FHD-H264.mp4" data-background-video-loop
+  :END:
