@@ -18,6 +18,7 @@
 #+AUTHOR: Stuart Mumford
 #+REVEAL_TITLE_SLIDE: <h3>%t</h3>
 #+REVEAL_TITLE_SLIDE: <h4>%a</h4>
+#+REVEAL_TITLE_SLIDE: <h5><a href="https://astrax.cadair.dev/">Slides: astrax.cadair.dev</a></h5>
 #+REVEAL_TITLE_SLIDE: <a href="https://aperio.software"><img style='float: left; width: 30%%; margin-top: 100px; height: 25%%;' src='images/aperio.svg'/></a><a href="https://sheffield.ac.uk"><img style='float: right; width: 30%%; margin-top: 100px; height: 25%%;' src='images/TUOS_Logo_CMYK_Keyline.svg'/></a><a href="https://sunpy.org"><img style='float: right; width: 30%%; margin-top: 100px; height: 25%%; margin-right: 5%%;' src='images/sunpy.svg'/></a>
 
 * Me
@@ -60,7 +61,7 @@ A community-developed, free and open-source solar data analysis environment for 
 A project to facilitate and promote the use and development of a community-led, free and open-source solar data-analysis software based on the scientific Python environment
 #+END_QUOTE
 
-#+REVEAL_HTML: <div class='left'>
+#+REVEAL_HTML: <div class='left3'>
 
 #+attr_html: :height 200px
 [[./images/sunpy_icon.svg]]
@@ -69,12 +70,24 @@ SunPy Core
 
 #+REVEAL_HTML: </div>
 
-#+REVEAL_HTML: <div class='right'>
+#+REVEAL_HTML: <div class='center3'>
 
 #+attr_html: :height 175px
 [[./images/ndcube.png]]
 
 NDCube
+
+#+REVEAL_HTML: </div>
+
+#+REVEAL_HTML: <div class='right3'>
+
+  * [[https://github.com/sunpy/drms][drms]]
+  * [[https://github.com/sunpy/radiospectra][radiospectra]]
+  * [[https://github.com/sunpy/ablog][ablog]]
+  * [[https://github.com/sunpy/sunraster][sunraster]]
+  * [[https://github.com/sunpy/sunkit-image][sunkit-image]]
+  * [[https://github.com/sunpy/sunpy-sphinx-theme][sunpy-sphinx-theme]]
+  * [[https://github.com/sunpy/sunpy.org][sunpy.org]]
 
 #+REVEAL_HTML: </div>
 
@@ -85,7 +98,22 @@ NDCube
   :reveal_background_position: top
   :END:
 
+#+begin_notes
+Python:
 
+    ndcube
+    drms
+    radiospectra
+    ablog
+    irispy
+    sunkit-image
+
+CSS/HTML:
+
+    sunpy-sphinx-theme
+    sunpy.org
+
+#+end_notes
 # AIA
 * 
   :PROPERTIES:
@@ -215,6 +243,42 @@ You DO NOT have to contribute code to contribute to an open project.
 There are loads of different ways you can help.
 
 #+end_notes
+
+
+
+** Community
+
+#+REVEAL_HTML: <div class='left'>
+
+Come say Hi!
+
+  * Riot / Matrix chat.
+  * sunpy & sunpy-dev @googlegroups.com mailing lists
+  * Twitter [[https://twitter.com/SunPyProject][@SunPyProject]]
+  * Weekly community calls (Wednesday 1600 or 1700 UTC)
+
+#+REVEAL_HTML: </div>
+
+#+REVEAL_HTML: <div class='right'>
+
+[[https://riot.im/app/#/room/#sunpy:openastronomy.org][#sunpy:openastronomy.org]] on [[https://matrix.org][Matrix]]
+[[./images/sunpy_riot.png]]
+
+#+REVEAL_HTML: </div>
+
+
+* Contributing Code
+
+
+
+
+
+
+
+
+
+
+
 
 # DKIST
 * 

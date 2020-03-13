@@ -37,3 +37,19 @@ body {
     width: 49%;
     float: right;
 }
+
+
+.left3 {
+    width: 32%;
+    float: left;
+}
+
+.center3 {
+    display: inline-block;
+    width: 32%;
+}
+
+.right3 {
+    width: 32%;
+    float: right;
+}
