@@ -18,6 +18,16 @@ body {
     box-shadow: none;
 }
 
+.src {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px 20px 20px 20px;
+}
+
+.example {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px 20px 20px 20px;
+}
+
 .left {
     width: 49%;
     float: left;

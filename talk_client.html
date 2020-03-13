@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="/src/reveal.js/css/theme/simple.css" id="theme"/>
 
 <link rel="stylesheet" href="org.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/github.min.css"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -34,8 +35,8 @@
 </section>
 
 <section>
-<section id="slide-orgedaa9fe" data-background="./images/background_1.jpg">
-<h2 id="orgedaa9fe">Me</h2>
+<section id="slide-org9db2ab5" data-background="./images/background_1.jpg">
+<h2 id="org9db2ab5">Me</h2>
 <p>
 I am the Lead Developer of SunPy.
 I work for the National Solar Observatory in the DKI Solar Telescope Data Centre.
@@ -72,8 +73,8 @@ Find me online:
 </section>
 </section>
 <section>
-<section id="slide-org83c3a74" data-background="./images/background_1.jpg">
-<h2 id="org83c3a74">What is SunPy?</h2>
+<section id="slide-org5b5a327" data-background="./images/background_1.jpg">
+<h2 id="org5b5a327">What is SunPy?</h2>
 <p>
 It's a Python library
 </p>
@@ -85,8 +86,8 @@ A community-developed, free and open-source solar data analysis environment for 
 
 
 </section>
-<section id="slide-orge5a1313" data-background="./images/background_1.jpg">
-<h3 id="orge5a1313"></h3>
+<section id="slide-org00e424b" data-background="./images/background_1.jpg">
+<h3 id="org00e424b"></h3>
 <p>
 &#x2026; but not just one library
 </p>
@@ -126,13 +127,13 @@ NDCube
 </div>
 
 </section>
-<section id="slide-org1b9b996" data-background="./images/sunpy_github.png" data-background-position="top" data-background-transition="slide">
-<h4 id="org1b9b996"></h4>
+<section id="slide-orgd29e7f4" data-background="./images/sunpy_github.png" data-background-position="top" data-background-transition="slide">
+<h4 id="orgd29e7f4"></h4>
 </section>
 </section>
 <section>
-<section id="slide-org9cf4efc" data-background="./images/fulldiskmulticolor.jpg" data-background-transition="slide">
-<h2 id="org9cf4efc"></h2>
+<section id="slide-org7645f2b" data-background="./images/fulldiskmulticolor.jpg" data-background-transition="slide">
+<h2 id="org7645f2b"></h2>
 <aside class="notes">
 <p>
 I promised pretty pictures of the Sun, so let's start with one of my favourites.
@@ -143,16 +144,155 @@ This is a NASA/SDO/AIA image which is a RGB composite of the solar corona in thr
 </p>
 
 </aside>
+
 </section>
+<section id="slide-org92d3403" data-background="./images/background_1.jpg">
+<h3 id="org92d3403">Getting AIA Data</h3>
+<div class="org-src-container">
+
+<pre><code class=" python" >from sunpy.net import Fido, attrs as a
+import sunpy.map
+
+results = Fido.search(a.Instrument("AIA"), a.Time("2020/03/06", "2020/03/06T00:00:11"),
+                      a.Wavelength(1*u.nm, 40*u.nm))
+results
+
+</code></pre>
+</div>
+
+<pre class="example">
+Results from 1 Provider:
+
+7 Results from the VSOClient:
+   Start Time [1]       End Time [1]    Source ...   Type   Wavelength [2]
+                                               ...             Angstrom   
+------------------- ------------------- ------ ... -------- --------------
+2020-03-06 00:00:00 2020-03-06 00:00:01    SDO ... FULLDISK 335.0 .. 335.0
+2020-03-06 00:00:04 2020-03-06 00:00:05    SDO ... FULLDISK 193.0 .. 193.0
+2020-03-06 00:00:05 2020-03-06 00:00:06    SDO ... FULLDISK 304.0 .. 304.0
+2020-03-06 00:00:06 2020-03-06 00:00:07    SDO ... FULLDISK 131.0 .. 131.0
+2020-03-06 00:00:09 2020-03-06 00:00:10    SDO ... FULLDISK 171.0 .. 171.0
+2020-03-06 00:00:09 2020-03-06 00:00:10    SDO ... FULLDISK 211.0 .. 211.0
+2020-03-06 00:00:11 2020-03-06 00:00:12    SDO ... FULLDISK   94.0 .. 94.0
+
+</pre>
+
+<aside class="notes">
+<p>
+This shows how you can use SunPy to download the data from the instrument that made this image.
+</p>
+
+<p>
+AIA observes in 7 passbands every 12 seconds (and 3 more at lower cadence), and returns 4kx4k images, that's over 1Tb of data a day.
+</p>
+
+<p>
+Here we have searched the Virtual Solar Observatory for a 12s window and all of the EUV passbands.
+</p>
+
+</aside>
+
 </section>
-<section>
-<section id="slide-org25564c9" data-background="" data-background-video="./images/Inouye-First-Light-zoom-loop_FHD-H264.mp4" data-background-video-loop>
-<h2 id="org25564c9"></h2>
+<section id="slide-orgbc36ddb" data-background="./images/background_1.jpg">
+<h3 id="orgbc36ddb"></h3>
+<div class="org-src-container">
+
+<pre><code class=" python" >files = Fido.fetch(results[0, 4])
+
+aia_map = sunpy.map.Map(files)
+
+aia_map.peek()
+</code></pre>
+</div>
+
+
+<div class="figure">
+<p><img src="images/aia_map_1.png" alt="aia_map_1.png" />
+</p>
+</div>
+
 <aside class="notes">
 <p>
 
 </p>
 
+<p>
+Here we download the 17.1nm image (the 5th in the list) and then load it with <code>sunpy.map</code> and quick view it.
+</p>
+
+</aside>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org7d8e5e1" data-background="./images/background_1.jpg">
+<h2 id="org7d8e5e1">Open Development</h2>
+<blockquote>
+<p>
+SunPy is built <b>by</b> and <b>for</b> the community.  All our code and project-level decisions are made in publicly-visible spaces, and we are open to input from our community for these decisions.
+</p>
+</blockquote>
+
+<p>
+Anyone can contribute, big, or small, code or other things. We try our hardest to encourage all contributions.
+</p>
+
+
+</section>
+<section id="slide-orga56cad6" data-background="./images/background_1.jpg">
+<h3 id="orga56cad6">Types of Contribution</h3>
+<div class='left'>
+
+<ul>
+<li class="fragment appear">Using SunPy, and telling us about it.</li>
+<li class="fragment appear">Code.</li>
+<li class="fragment appear">Documentation.</li>
+<li class="fragment appear">Answering questions in chat / on mailing lists.</li>
+<li class="fragment appear">Writing blog posts.</li>
+<li class="fragment appear">Writing examples based on your work.</li>
+<li class="fragment appear">Maintaining the CI etc infrastructure.</li>
+<li class="fragment appear">Writing an Affiliated Package.</li>
+<li class="fragment appear">Serving on the project's board.</li>
+
+</ul>
+
+</div>
+
+<div class='right'>
+
+
+<div class="figure">
+<p><img src="./images/sunpy_package_novice.png" alt="sunpy_package_novice.png" />
+</p>
+</div>
+
+<p>
+<a href="https://sunpy.org/novice-issues">https://sunpy.org/novice-issues</a>
+</p>
+
+</div>
+
+<aside class="notes">
+<p>
+
+</p>
+
+<p>
+You DO NOT have to contribute code to contribute to an open project.
+</p>
+
+<p>
+There are loads of different ways you can help.
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-org9d04bb7" data-background="" data-background-video="./images/Inouye-First-Light-zoom-loop_FHD-H264.mp4" data-background-video-loop>
+<h2 id="org9d04bb7"></h2>
+<aside class="notes">
 <p>
 This is the first data released from the DKI Solar Telescope.
 </p>
@@ -200,7 +340,8 @@ multiplex: {
 dependencies: [
  { src: '/src/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
  { src: 'https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.0.6/socket.io.min.js', async: true },
- { src: '/src/reveal.js/plugin/multiplex/client.js', async: true }]
+ { src: '/src/reveal.js/plugin/multiplex/client.js', async: true },
+ { src: '/src/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
 
 });
 </script>
