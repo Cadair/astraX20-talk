@@ -245,7 +245,6 @@ There are loads of different ways you can help.
 #+end_notes
 
 
-
 ** Community
 
 #+REVEAL_HTML: <div class='left'>
@@ -267,18 +266,54 @@ Come say Hi!
 #+REVEAL_HTML: </div>
 
 
+** Open Governance
+
+
 * Contributing Code
 
+** 
+  :PROPERTIES:
+  :reveal_background:
+  :reveal_extra_attr: data-background-iframe="https://docs.sunpy.org/en/latest/dev_guide/newcomers.html#code" data-background-interactive
+  :END:
 
 
+** What to do
+
+https://docs.sunpy.org/en/latest/dev_guide/newcomers.html#code
 
 
+#+REVEAL_HTML: <div class='left'>
+
+#+ATTR_REVEAL: :frag (appear)
+  * Get a Python development environment setup.
+    * conda or virtualenv etc.
+    * 3.6+ Python
+    * C compiler + toolchain
+  * Clone the sunpy repo
+   * Always good to learn git
+  * Run the tests ~tox -e py38~
+  * Make a git branch and edit some code
+  * Re-run the tests
+  * Open a Pull Request
+
+#+REVEAL_HTML: </div>
+
+#+REVEAL_HTML: <div class='right'>
+
+[[./images/sunpy_pr_simple.png]]
+
+#+REVEAL_HTML: </div>
 
 
+** What to Expect
 
-
-
-
+#+ATTR_REVEAL: :frag (appear)
+  * A lot of comments!!
+  * Iteration and improvement.
+  * A friendly reception.
+  * Attribution.
+  * Eternal gratitude.
 
 # DKIST
 * 
