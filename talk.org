@@ -18,7 +18,7 @@
 #+AUTHOR: Stuart Mumford
 #+REVEAL_TITLE_SLIDE: <h3>%t</h3>
 #+REVEAL_TITLE_SLIDE: <h4>%a</h4>
-#+REVEAL_TITLE_SLIDE: <h5><a href="https://astrax.cadair.dev/">Slides: astrax.cadair.dev</a></h5>
+#+REVEAL_TITLE_SLIDE: <h5>Slides: <a href="https://astrax.cadair.dev/">astrax.cadair.dev</a></h5>
 #+REVEAL_TITLE_SLIDE: <a href="https://aperio.software"><img style='float: left; width: 30%%; margin-top: 100px; height: 25%%;' src='images/aperio.svg'/></a><a href="https://sheffield.ac.uk"><img style='float: right; width: 30%%; margin-top: 100px; height: 25%%;' src='images/TUOS_Logo_CMYK_Keyline.svg'/></a><a href="https://sunpy.org"><img style='float: right; width: 30%%; margin-top: 100px; height: 25%%; margin-right: 5%%;' src='images/sunpy.svg'/></a>
 
 * Me
@@ -211,7 +211,6 @@ Anyone can contribute, big, or small, code or other things. We try our hardest t
 
 ** Types of Contribution
 
-
 #+REVEAL_HTML: <div class='left'>
 
 #+ATTR_REVEAL: :frag (appear)
@@ -266,7 +265,86 @@ Come say Hi!
 #+REVEAL_HTML: </div>
 
 
-** Open Governance
+* Open Governance
+
+https://github.com/sunpy/sunpy-SEP
+
+#+attr_html: :height 500px
+[[./images/sunpy_sep.png]]
+
+
+#+BEGIN_SRC python :session repro :exports none :results output
+import matplotlib
+matplotlib.use('Agg')
+
+import matplotlib.pyplot as plt
+
+import astropy.units as u
+
+from reprojection_example import maps
+
+from sunpy.coordinates import get_body_heliographic_stonyhurst
+#+END_SRC
+
+#+RESULTS:
+
+* 
+  :PROPERTIES:
+  :reveal_background: ./images/repro_comp.png
+  :END:
+
+
+** Satellite Coordinates
+
+#+BEGIN_SRC python :session repro :exports none :results output
+fig_c = plt.figure(figsize=(5, 5))
+
+ax = plt.subplot(projection='polar')
+#+END_SRC
+
+#+RESULTS:
+
+#+BEGIN_SRC python :session repro :exports none
+earth = get_body_heliographic_stonyhurst('earth', maps[0].date)
+circle = plt.Circle((0.0, 0.0), (10 * u.Rsun).to_value(u.AU),
+                    transform=ax.transProjectionAffine + ax.transAxes, color="yellow",
+                    alpha=1, label="Sun")
+ax.add_artist(circle)
+ax.text(earth.lon.to_value("rad")+0.05, earth.radius.to_value(u.AU), "Earth")
+
+for this_satellite, this_coord in [(m.observatory, m.observer_coordinate) for m in maps]:
+    plt.polar(this_coord.lon.to('rad'), this_coord.radius.to(u.AU), 'o', label=this_satellite)
+#+END_SRC
+
+#+BEGIN_SRC python :session repro :results file :exports results
+ax.set_theta_zero_location("S")
+ax.set_rlim(0, 1.3)
+
+fig_c.savefig("images/coords_1.png", transparent=True)
+"images/coords_1.png"
+#+END_SRC
+
+#+RESULTS:
+[[file:images/coords_1.png]]
+
+*** Coordinates
+
+
+#+BEGIN_SRC python :session repro :exports both :results output
+get_body_heliographic_stonyhurst('earth', "2020/03/14")
+#+END_SRC
+
+#+RESULTS:
+: <HeliographicStonyhurst Coordinate (obstime=2020-03-14T00:00:00.000): (lon, lat, radius) in (deg, deg, AU)
+:     (0., -7.18397967, 0.99417787)>
+
+#+BEGIN_SRC python :session repro :exports both :results output
+maps[0].observer_coordinate
+#+END_SRC
+
+#+RESULTS:
+: <SkyCoord (HeliographicStonyhurst: obstime=2011-11-01T00:05:31.331): (lon, lat, radius) in (deg, deg, m)
+:     (105.18280015, -6.83288177, 1.44676363e+11)>
 
 
 * Contributing Code

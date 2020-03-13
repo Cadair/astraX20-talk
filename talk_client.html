@@ -31,13 +31,13 @@
 <section id="sec-title-slide" data-background="./images/background_1.jpg">
 <h3>SunPy: Python for Solar Physics</h3>
 <h4>Stuart Mumford</h4>
-<h5><a href="https://astrax.cadair.dev/">Slides: astrax.cadair.dev</a></h5>
+<h5>Slides: <a href="https://astrax.cadair.dev/">astrax.cadair.dev</a></h5>
 <a href="https://aperio.software"><img style='float: left; width: 30%; margin-top: 100px; height: 25%;' src='images/aperio.svg'/></a><a href="https://sheffield.ac.uk"><img style='float: right; width: 30%; margin-top: 100px; height: 25%;' src='images/TUOS_Logo_CMYK_Keyline.svg'/></a><a href="https://sunpy.org"><img style='float: right; width: 30%; margin-top: 100px; height: 25%; margin-right: 5%;' src='images/sunpy.svg'/></a>
 </section>
 
 <section>
-<section id="slide-org66f0cf9" data-background="./images/background_1.jpg">
-<h2 id="org66f0cf9">Me</h2>
+<section id="slide-org1333252" data-background="./images/background_1.jpg">
+<h2 id="org1333252">Me</h2>
 <p>
 I am the Lead Developer of SunPy.
 I work for the National Solar Observatory in the DKI Solar Telescope Data Centre.
@@ -74,8 +74,8 @@ Find me online:
 </section>
 </section>
 <section>
-<section id="slide-org2bd0c2e" data-background="./images/background_1.jpg">
-<h2 id="org2bd0c2e">What is SunPy?</h2>
+<section id="slide-org0310df5" data-background="./images/background_1.jpg">
+<h2 id="org0310df5">What is SunPy?</h2>
 <p>
 It's a Python library
 </p>
@@ -87,8 +87,8 @@ A community-developed, free and open-source solar data analysis environment for 
 
 
 </section>
-<section id="slide-org567e648" data-background="./images/background_1.jpg">
-<h3 id="org567e648"></h3>
+<section id="slide-orgb2daee8" data-background="./images/background_1.jpg">
+<h3 id="orgb2daee8"></h3>
 <p>
 &#x2026; but not just one library
 </p>
@@ -143,8 +143,8 @@ NDCube
 </div>
 
 </section>
-<section id="slide-org67febd3" data-background="./images/sunpy_github.png" data-background-position="top" data-background-transition="slide">
-<h4 id="org67febd3"></h4>
+<section id="slide-org1481ffb" data-background="./images/sunpy_github.png" data-background-position="top" data-background-transition="slide">
+<h4 id="org1481ffb"></h4>
 <aside class="notes">
 <p>
 Python:
@@ -172,8 +172,8 @@ sunpy.org
 </section>
 </section>
 <section>
-<section id="slide-orgfceb873" data-background="./images/fulldiskmulticolor.jpg" data-background-transition="slide">
-<h2 id="orgfceb873"></h2>
+<section id="slide-org0a72c5b" data-background="./images/fulldiskmulticolor.jpg" data-background-transition="slide">
+<h2 id="org0a72c5b"></h2>
 <aside class="notes">
 <p>
 I promised pretty pictures of the Sun, so let's start with one of my favourites.
@@ -186,8 +186,8 @@ This is a NASA/SDO/AIA image which is a RGB composite of the solar corona in thr
 </aside>
 
 </section>
-<section id="slide-org94f4477" data-background="./images/background_1.jpg">
-<h3 id="org94f4477">Getting AIA Data</h3>
+<section id="slide-org67180e0" data-background="./images/background_1.jpg">
+<h3 id="org67180e0">Getting AIA Data</h3>
 <div class="org-src-container">
 
 <pre><code class=" python" >from sunpy.net import Fido, attrs as a
@@ -199,23 +199,6 @@ results
 
 </code></pre>
 </div>
-
-<pre class="example">
-Results from 1 Provider:
-
-7 Results from the VSOClient:
-   Start Time [1]       End Time [1]    Source ...   Type   Wavelength [2]
-                                               ...             Angstrom   
-------------------- ------------------- ------ ... -------- --------------
-2020-03-06 00:00:00 2020-03-06 00:00:01    SDO ... FULLDISK 335.0 .. 335.0
-2020-03-06 00:00:04 2020-03-06 00:00:05    SDO ... FULLDISK 193.0 .. 193.0
-2020-03-06 00:00:05 2020-03-06 00:00:06    SDO ... FULLDISK 304.0 .. 304.0
-2020-03-06 00:00:06 2020-03-06 00:00:07    SDO ... FULLDISK 131.0 .. 131.0
-2020-03-06 00:00:09 2020-03-06 00:00:10    SDO ... FULLDISK 171.0 .. 171.0
-2020-03-06 00:00:09 2020-03-06 00:00:10    SDO ... FULLDISK 211.0 .. 211.0
-2020-03-06 00:00:11 2020-03-06 00:00:12    SDO ... FULLDISK   94.0 .. 94.0
-
-</pre>
 
 <aside class="notes">
 <p>
@@ -233,8 +216,8 @@ Here we have searched the Virtual Solar Observatory for a 12s window and all of 
 </aside>
 
 </section>
-<section id="slide-org324d57c" data-background="./images/background_1.jpg">
-<h3 id="org324d57c"></h3>
+<section id="slide-org9ede596" data-background="./images/background_1.jpg">
+<h3 id="org9ede596"></h3>
 <div class="org-src-container">
 
 <pre><code class=" python" >files = Fido.fetch(results[0, 4])
@@ -266,8 +249,8 @@ Here we download the 17.1nm image (the 5th in the list) and then load it with <c
 </section>
 </section>
 <section>
-<section id="slide-orge003ab4" data-background="./images/background_1.jpg">
-<h2 id="orge003ab4">Open Development</h2>
+<section id="slide-org38622c5" data-background="./images/background_1.jpg">
+<h2 id="org38622c5">Open Development</h2>
 <blockquote>
 <p>
 SunPy is built <b>by</b> and <b>for</b> the community.  All our code and project-level decisions are made in publicly-visible spaces, and we are open to input from our community for these decisions.
@@ -280,8 +263,8 @@ Anyone can contribute, big, or small, code or other things. We try our hardest t
 
 
 </section>
-<section id="slide-org927b105" data-background="./images/background_1.jpg">
-<h3 id="org927b105">Types of Contribution</h3>
+<section id="slide-org4b3911c" data-background="./images/background_1.jpg">
+<h3 id="org4b3911c">Types of Contribution</h3>
 <div class='left'>
 
 <ul>
@@ -330,10 +313,9 @@ There are loads of different ways you can help.
 </aside>
 
 
-
 </section>
-<section id="slide-org6d2d32a" data-background="./images/background_1.jpg">
-<h3 id="org6d2d32a">Community</h3>
+<section id="slide-orgdf9ce3d" data-background="./images/background_1.jpg">
+<h3 id="orgdf9ce3d">Community</h3>
 <div class='left'>
 
 <p>
@@ -363,18 +345,75 @@ Come say Hi!
 </section>
 </section>
 <section>
-<section id="slide-orge625885" data-background="./images/background_1.jpg">
-<h2 id="orge625885">Contributing Code</h2>
-<div class="outline-text-2" id="text-orge625885">
+<section id="slide-orge87b422" data-background="./images/background_1.jpg">
+<h2 id="orge87b422">Open Governance</h2>
+<p>
+<a href="https://github.com/sunpy/sunpy-SEP">https://github.com/sunpy/sunpy-SEP</a>
+</p>
+
+
+<div class="figure">
+<p><img src="./images/sunpy_sep.png" alt="sunpy_sep.png" height="500px" />
+</p>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgd5beb38" data-background="./images/repro_comp.png">
+<h2 id="orgd5beb38"></h2>
+</section>
+<section id="slide-org3f8de52" data-background="./images/background_1.jpg">
+<h3 id="org3f8de52">Satellite Coordinates</h3>
+
+<div class="figure">
+<p><img src="images/coords_1.png" alt="coords_1.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgea2cf61" data-background="./images/background_1.jpg">
+<h4 id="orgea2cf61">Coordinates</h4>
+<div class="org-src-container">
+
+<pre><code class=" python" >get_body_heliographic_stonyhurst('earth', "2020/03/14")
+</code></pre>
+</div>
+
+<pre class="example">
+&lt;HeliographicStonyhurst Coordinate (obstime=2020-03-14T00:00:00.000): (lon, lat, radius) in (deg, deg, AU)
+    (0., -7.18397967, 0.99417787)&gt;
+</pre>
+
+
+<div class="org-src-container">
+
+<pre><code class=" python" >maps[0].observer_coordinate
+</code></pre>
+</div>
+
+<pre class="example">
+&lt;SkyCoord (HeliographicStonyhurst: obstime=2011-11-01T00:05:31.331): (lon, lat, radius) in (deg, deg, m)
+    (105.18280015, -6.83288177, 1.44676363e+11)&gt;
+</pre>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgc5d305f" data-background="./images/background_1.jpg">
+<h2 id="orgc5d305f">Contributing Code</h2>
+<div class="outline-text-2" id="text-orgc5d305f">
 </div>
 </section>
-<section id="slide-orgd0e28d6" data-background="" data-background-iframe="https://docs.sunpy.org/en/latest/dev_guide/newcomers.html#code" data-background-interactive>
-<h3 id="orgd0e28d6"></h3>
+<section id="slide-org03ea6c1" data-background="" data-background-iframe="https://docs.sunpy.org/en/latest/dev_guide/newcomers.html#code" data-background-interactive>
+<h3 id="org03ea6c1"></h3>
 
 
 </section>
-<section id="slide-orga4967a3" data-background="./images/background_1.jpg">
-<h3 id="orga4967a3">What to do</h3>
+<section id="slide-orge256f51" data-background="./images/background_1.jpg">
+<h3 id="orge256f51">What to do</h3>
 <p>
 <a href="https://docs.sunpy.org/en/latest/dev_guide/newcomers.html#code">https://docs.sunpy.org/en/latest/dev_guide/newcomers.html#code</a>
 </p>
@@ -413,11 +452,24 @@ Come say Hi!
 </div>
 
 </div>
+
+
+</section>
+<section id="slide-orgf53a95c" data-background="./images/background_1.jpg">
+<h3 id="orgf53a95c">What to Expect</h3>
+<ul>
+<li class="fragment appear">A lot of comments!!</li>
+<li class="fragment appear">Iteration and improvement.</li>
+<li class="fragment appear">A friendly reception.</li>
+<li class="fragment appear">Attribution.</li>
+<li class="fragment appear">Eternal gratitude.</li>
+
+</ul>
 </section>
 </section>
 <section>
-<section id="slide-orgd8bf93c" data-background="" data-background-video="./images/Inouye-First-Light-zoom-loop_FHD-H264.mp4" data-background-video-loop>
-<h2 id="orgd8bf93c"></h2>
+<section id="slide-org2f5276c" data-background="" data-background-video="./images/Inouye-First-Light-zoom-loop_FHD-H264.mp4" data-background-video-loop>
+<h2 id="org2f5276c"></h2>
 <aside class="notes">
 <p>
 This is the first data released from the DKI Solar Telescope.
