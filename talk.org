@@ -298,7 +298,19 @@ https://github.com/sunpy/sunpy-SEP
 [[./images/sunpy_sep.png]]
 
 
-#+BEGIN_SRC python :session repro :exports none :results output
+
+** SunPy Board
+https://sunpy.org/project/
+
+#+attr_html: :height 500px
+[[./images/sunpy_board.png]]
+
+* 
+  :PROPERTIES:
+  :reveal_background: ./images/repro_comp.png
+  :END:
+
+#+BEGIN_SRC python :session repro :exports none
 import matplotlib
 matplotlib.use('Agg')
 
@@ -312,60 +324,6 @@ from sunpy.coordinates import get_body_heliographic_stonyhurst
 #+END_SRC
 
 #+RESULTS:
-#+begin_example
-Files Downloaded:   0% 0/3 [00:00<?, ?file/s]Files Downloaded:  33% 1/3 [00:00<00:01,  1.64file/s]Files Downloaded: 100% 3/3 [00:01<00:00,  2.02file/s]Files Downloaded: 100% 3/3 [00:01<00:00,  2.81file/s]
-WARNING: FITSFixedWarning: CROTA = -2.59161103276 
-keyword looks very much like CROTAn but isn't. [astropy.wcs.wcs]
-WARNING: FITSFixedWarning: CROTA = -2.59161103276 
-keyword looks very much like CROTAn but isn't. [astropy.wcs.wcs]
-WARNING: FITSFixedWarning: CROTA = 4.34749588558 
-keyword looks very much like CROTAn but isn't. [astropy.wcs.wcs]
-WARNING: FITSFixedWarning: CROTA = 4.34749588558 
-keyword looks very much like CROTAn but isn't. [astropy.wcs.wcs]
-WARNING: FITSFixedWarning: CROTA = -2.59161103276 
-keyword looks very much like CROTAn but isn't. [astropy.wcs.wcs]
-WARNING: FITSFixedWarning: CROTA = -2.59161103276 
-keyword looks very much like CROTAn but isn't. [astropy.wcs.wcs]
-WARNING: FITSFixedWarning: CROTA = 4.34749588558 
-keyword looks very much like CROTAn but isn't. [astropy.wcs.wcs]
-WARNING: FITSFixedWarning: CROTA = 4.34749588558 
-keyword looks very much like CROTAn but isn't. [astropy.wcs.wcs]
-WARNING: FITSFixedWarning: CROTA = -2.59161103276 
-keyword looks very much like CROTAn but isn't. [astropy.wcs.wcs]
-/home/stuart/.virtualenvs/sunpy-release/lib/python3.8/site-packages/astropy/coordinates/angles.py:522: RuntimeWarning: invalid value encountered in less
-  if np.any(angles.value < lower) or np.any(angles.value > upper):
-/home/stuart/.virtualenvs/sunpy-release/lib/python3.8/site-packages/astropy/coordinates/angles.py:522: RuntimeWarning: invalid value encountered in greater
-  if np.any(angles.value < lower) or np.any(angles.value > upper):
-/home/stuart/.virtualenvs/sunpy-release/lib/python3.8/site-packages/reproject/array_utils.py:30: RuntimeWarning: invalid value encountered in less
-  reset |= (coords[i] < -0.5)
-/home/stuart/.virtualenvs/sunpy-release/lib/python3.8/site-packages/reproject/array_utils.py:31: RuntimeWarning: invalid value encountered in greater
-  reset |= (coords[i] > original_shape[i] - 0.5)
-WARNING: FITSFixedWarning: CROTA = 4.34749588558 
-keyword looks very much like CROTAn but isn't. [astropy.wcs.wcs]
-/home/stuart/.virtualenvs/sunpy-release/lib/python3.8/site-packages/astropy/coordinates/angles.py:522: RuntimeWarning: invalid value encountered in less
-  if np.any(angles.value < lower) or np.any(angles.value > upper):
-/home/stuart/.virtualenvs/sunpy-release/lib/python3.8/site-packages/astropy/coordinates/angles.py:522: RuntimeWarning: invalid value encountered in greater
-  if np.any(angles.value < lower) or np.any(angles.value > upper):
-/home/stuart/.virtualenvs/sunpy-release/lib/python3.8/site-packages/reproject/wcs_utils.py:224: RuntimeWarning: invalid value encountered in greater
-  reset |= (np.abs(inputs_check[ipix] - inputs[ipix]) > 1)
-/home/stuart/.virtualenvs/sunpy-release/lib/python3.8/site-packages/reproject/array_utils.py:30: RuntimeWarning: invalid value encountered in less
-  reset |= (coords[i] < -0.5)
-/home/stuart/.virtualenvs/sunpy-release/lib/python3.8/site-packages/reproject/array_utils.py:31: RuntimeWarning: invalid value encountered in greater
-  reset |= (coords[i] > original_shape[i] - 0.5)
-/home/stuart/.virtualenvs/sunpy-release/lib/python3.8/site-packages/astropy/coordinates/angles.py:522: RuntimeWarning: invalid value encountered in less
-  if np.any(angles.value < lower) or np.any(angles.value > upper):
-/home/stuart/.virtualenvs/sunpy-release/lib/python3.8/site-packages/astropy/coordinates/angles.py:522: RuntimeWarning: invalid value encountered in greater
-  if np.any(angles.value < lower) or np.any(angles.value > upper):
-/home/stuart/.virtualenvs/sunpy-release/lib/python3.8/site-packages/reproject/array_utils.py:30: RuntimeWarning: invalid value encountered in less
-  reset |= (coords[i] < -0.5)
-/home/stuart/.virtualenvs/sunpy-release/lib/python3.8/site-packages/reproject/array_utils.py:31: RuntimeWarning: invalid value encountered in greater
-  reset |= (coords[i] > original_shape[i] - 0.5)
-#+end_example
-
-* 
-  :PROPERTIES:
-  :reveal_background: ./images/repro_comp.png
-  :END:
 
 
 ** Satellite Coordinates
@@ -429,61 +387,11 @@ venus_transit_file = Fido.fetch(result)[0]
 #+END_SRC
 
 #+RESULTS:
-#+begin_example
-Files Downloaded:   0% 0/1 [00:00<?, ?file/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:   0% 0.00/6.73M [00:00<?, ?B/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:   0% 14.4k/6.73M [00:00<00:56, 118kB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:   1% 44.1k/6.73M [00:00<00:47, 140kB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:   1% 98.0k/6.73M [00:00<00:37, 176kB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:   3% 203k/6.73M [00:00<00:28, 231kB/s] 
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:   5% 353k/6.73M [00:00<00:22, 279kB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  11% 773k/6.73M [00:00<00:15, 385kB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  13% 904k/6.73M [00:01<00:12, 453kB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  15% 1.02M/6.73M [00:01<00:10, 537kB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  17% 1.15M/6.73M [00:01<00:08, 645kB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  19% 1.28M/6.73M [00:01<00:07, 719kB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  21% 1.40M/6.73M [00:01<00:06, 780kB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  23% 1.53M/6.73M [00:01<00:06, 841kB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  25% 1.65M/6.73M [00:01<00:05, 895kB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  26% 1.78M/6.73M [00:01<00:05, 937kB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  28% 1.92M/6.73M [00:02<00:04, 976kB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  30% 2.05M/6.73M [00:02<00:04, 1.00MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  32% 2.18M/6.73M [00:02<00:04, 1.03MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  34% 2.32M/6.73M [00:02<00:04, 1.05MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  36% 2.46M/6.73M [00:02<00:03, 1.08MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  39% 2.59M/6.73M [00:02<00:03, 1.09MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  41% 2.73M/6.73M [00:02<00:03, 1.11MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  43% 2.87M/6.73M [00:02<00:03, 1.12MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  45% 3.02M/6.73M [00:03<00:03, 1.13MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  47% 3.16M/6.73M [00:03<00:03, 1.14MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  49% 3.30M/6.73M [00:03<00:03, 1.14MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  51% 3.44M/6.73M [00:03<00:02, 1.15MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  53% 3.58M/6.73M [00:03<00:02, 1.19MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  55% 3.72M/6.73M [00:03<00:02, 1.18MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  57% 3.86M/6.73M [00:03<00:02, 1.18MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  60% 4.01M/6.73M [00:03<00:02, 1.10MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  62% 4.15M/6.73M [00:04<00:02, 1.12MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  64% 4.30M/6.73M [00:04<00:02, 1.14MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  66% 4.44M/6.73M [00:04<00:02, 1.07MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  68% 4.58M/6.73M [00:04<00:01, 1.10MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  70% 4.73M/6.73M [00:04<00:01, 1.12MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  72% 4.87M/6.73M [00:04<00:01, 1.05MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  74% 5.02M/6.73M [00:04<00:01, 1.09MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  77% 5.16M/6.73M [00:04<00:01, 1.11MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  79% 5.30M/6.73M [00:05<00:01, 1.04MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  81% 5.45M/6.73M [00:05<00:01, 1.07MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  83% 5.59M/6.73M [00:05<00:01, 1.10MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  85% 5.73M/6.73M [00:05<00:00, 1.04MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  87% 5.88M/6.73M [00:05<00:00, 1.08MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  89% 6.02M/6.73M [00:05<00:00, 1.10MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  92% 6.16M/6.73M [00:05<00:00, 1.05MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  94% 6.31M/6.73M [00:06<00:00, 1.09MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  96% 6.45M/6.73M [00:06<00:00, 1.11MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits:  98% 6.59M/6.73M [00:06<00:00, 1.05MB/s]
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits: 6.74MB [00:06, 1.09MB/s]                
-aia_lev1_304a_2012_06_06t04_07_32_13z_image_lev1.fits: 6.89MB [00:06, 1.12MB/s]
-                                                                               Files Downloaded: 100% 1/1 [00:07<00:00,  7.86s/file]Files Downloaded: 100% 1/1 [00:07<00:00,  7.86s/file]
-#+end_example
+: Python 3.8.2 (default, Feb 26 2020, 22:21:03) 
+: [GCC 9.2.1 20200130] on linux
+: Type "help", "copyright", "credits" or "license" for more information.
+: Files Downloaded:   0% 0/1 [00:00<?, ?file/s]Files Downloaded: 100% 1/1 [00:01<00:00,  1.07s/file]Files Downloaded: 100% 1/1 [00:01<00:00,  1.07s/file]
+: python.el: native completion setup loaded
 
 #+BEGIN_SRC python :session venus :exports both
 aiamap = sunpy.map.Map(venus_transit_file)
@@ -503,12 +411,16 @@ venus_hpc
 
 #+BEGIN_SRC python :session venus :exports code :results output
 fov = 100 * u.arcsec
-top_right = SkyCoord(venus_hpc.Tx + fov, venus_hpc.Ty + fov, frame=aiamap.coordinate_frame)
-bottom_left = SkyCoord(venus_hpc.Tx - fov, venus_hpc.Ty - fov, frame=aiamap.coordinate_frame)
+top_right = SkyCoord(venus_hpc.Tx + fov, venus_hpc.Ty + fov,
+                     frame=aiamap.coordinate_frame)
+bottom_left = SkyCoord(venus_hpc.Tx - fov, venus_hpc.Ty - fov,
+                       frame=aiamap.coordinate_frame)
 
 venus_map = aiamap.submap(top_right, bottom_left)
 
+
 ax = plt.subplot(projection=venus_map)
+
 venus_map.plot()
 ax.plot_coord(venus_hpc, 'x', color='white', markersize=10)
 #+END_SRC
